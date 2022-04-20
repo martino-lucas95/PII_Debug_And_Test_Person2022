@@ -6,16 +6,34 @@ namespace Tests
 {
     public class Tests
     {
+        private Person person;
+
         [SetUp]
         public void Setup()
         {
-            // Insertá tu código de inicialización aquí
+            this.person = new Person("Lucas Martino", "1.234.567-8");
         }
 
         [Test]
-        public void Test1() // Cambiá el nombre para indicar qué estás probando
+        public void NameNotNull()
         {
-            // Insertá tu código  de pruebaaquí
+            //Not Null
+            const string expected = "Lucas";
+            Assert.IsNotNull(expected, person.Name);
+        }
+
+        [Test]
+        public void NameNotEmpty()
+        {
+            const string expected = " ";
+            Assert.IsNotEmpty(expected, person.Name);
+        }
+
+        [Test]
+        public void ValidId()
+        {
+            const string expected = "4.658.761-8";
+            Assert.IsNotNull(expected, person.ID);
         }
     }
 }
